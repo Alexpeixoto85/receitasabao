@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Sabão Caseiro com Óleo Usado · Mobile</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+            background: #f5f3f0;
+            color: #2e2a28;
+            line-height: 1.5;
+            padding: 16px 12px 32px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+        }
+        h1 {
+            font-size: 1.9rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+            color: #1e3f3f;
+            border-left: 6px solid #2b7a4b;
+            padding-left: 14px;
+        }
+        .subhead {
+            font-size: 1rem;
+            color: #4b4b4b;
+            margin-bottom: 24px;
+            padding-left: 6px;
+            font-style: italic;
+        }
+        .card {
+            background: white;
+            border-radius: 24px;
+            padding: 20px 18px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 12px rgba(0,20,10,0.08);
+            border: 1px solid #e6e0d8;
+        }
+        .warning {
+            background: #fff1e6;
+            border-left: 8px solid #c93e3e;
+            border-radius: 20px;
+            padding: 18px 16px;
+            margin-bottom: 28px;
+            box-shadow: 0 4px 10px rgba(180,60,40,0.1);
+        }
+        .warning h2 {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #9b2c2c;
+            margin-bottom: 10px;
+        }
+        .warning ul {
+            list-style-type: none;
+            padding-left: 6px;
+        }
+        .warning li {
+            margin-bottom: 10px;
+            padding-left: 26px;
+            position: relative;
+            font-weight: 500;
+        }
+        .warning li::before {
+            content: "⚠️";
+            position: absolute;
+            left: 0;
+            top: -1px;
+            font-size: 1.1rem;
+        }
+        .recipe-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        .recipe-item {
+            background: #faf9f7;
+            border-radius: 20px;
+            padding: 18px 16px;
+            border: 1px solid #ded9d2;
+        }
+        .recipe-item h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1f543e;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            border-bottom: 2px dotted #bccfc4;
+            padding-bottom: 8px;
+        }
+        .recipe-item .ing {
+            background: #eef3ea;
+            padding: 14px 12px;
+            border-radius: 16px;
+            margin: 12px 0 10px;
+        }
+        .recipe-item p {
+            margin: 8px 0;
+        }
+        .ing strong {
+            color: #1d4e3d;
+        }
+        .badge {
+            display: inline-block;
+            background: #1e3f3f;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 30px;
+            letter-spacing: 0.3px;
+            margin-top: 8px;
+        }
+        .preparo {
+            counter-reset: step;
+            list-style: none;
+            padding: 6px 0;
+        }
+        .preparo li {
+            counter-increment: step;
+            margin-bottom: 14px;
+            padding-left: 36px;
+            position: relative;
+            font-size: 0.98rem;
+        }
+        .preparo li::before {
+            content: counter(step);
+            background: #2b7a4b;
+            color: white;
+            font-weight: bold;
+            width: 26px;
+            height: 26px;
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            left: 0;
+            top: -2px;
+            font-size: 0.85rem;
+        }
+        .tip-box {
+            background: #e0dccd;
+            border-radius: 20px;
+            padding: 18px;
+            margin-top: 20px;
+            color: #2b3e2b;
+        }
+        .tip-box h4 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        hr {
+            border: none;
+            border-top: 2px solid #cfc9be;
+            margin: 24px 0 16px;
+        }
+        .small-note {
+            font-size: 0.9rem;
+            background: #fff9e6;
+            padding: 16px;
+            border-radius: 16px;
+            border-left: 5px solid #e68a2e;
+        }
+        a {
+            color: #1a5a4b;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .footer {
+            text-align: center;
+            color: #6f6b64;
+            font-size: 0.85rem;
+            margin-top: 32px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>🧼 sabão com óleo</h1>
+    <div class="subhead">escolha sua receita — tudo feito em casa, seguro e sustentável</div>
+
+    <!-- ALERTA DE SEGURANÇA (sempre visível) -->
+    <div class="warning">
+        <h2>☣️ atenção obrigatória</h2>
+        <ul>
+            <li><strong>use luvas, óculos e máscara</strong> (soda cáustica queima)</li>
+            <li>local bem arejado — longe de crianças e animais</li>
+            <li>sempre <strong>adicione a SODA na ÁGUA</strong> (nunca o contrário)</li>
+            <li>vasilhas de plástico resistente, vidro ou inox — <strong>nunca alumínio</strong></li>
+            <li>cura mínima de <strong>15 a 30 dias</strong> antes de usar</li>
+        </ul>
+    </div>
+
+    <!-- LISTA DE RECEITAS - CARDS -->
+    <div class="recipe-grid">
+        <!-- 1. básico multiuso -->
+        <div class="recipe-item">
+            <h3>🧽 multiuso básico</h3>
+            <div class="ing">
+                <strong>🥄 ingredientes:</strong><br>
+                3 litros de óleo usado (coado)<br>
+                250 g de soda cáustica (escama ou pérola)<br>
+                2 colheres (sopa) de açúcar<br>
+                1 colher (sopa) de sal<br>
+                água (o suficiente para dissolver a soda)
+            </div>
+            <p><strong>📌 uso:</strong> roupas, louças, chão, banheiro – espuma macia</p>
+            <span class="badge">rendimento ≈ 4 kg</span>
+        </div>
+
+        <!-- 2. econômico -->
+        <div class="recipe-item">
+            <h3>💰 econômico</h3>
+            <div class="ing">
+                <strong>🥄 ingredientes:</strong><br>
+                4 litros de óleo usado<br>
+                240 g de soda cáustica (90%)<br>
+                200 ml de água quente
+            </div>
+            <p><strong>📌 uso:</strong> panelas, louças do dia a dia</p>
+            <span class="badge">super simples</span>
+        </div>
+
+        <!-- 3. espuma extra -->
+        <div class="recipe-item">
+            <h3>🧴 espuma cremosa</h3>
+            <div class="ing">
+                <strong>🥄 ingredientes:</strong><br>
+                4 litros de óleo usado<br>
+                1 kg de soda cáustica (70%)<br>
+                2 litros de água<br>
+                300 g de sabão em pó<br>
+                500 ml de detergente
+            </div>
+            <p><strong>📌 uso:</strong> limpeza pesada – muito poder de espuma</p>
+            <span class="badge">rendimento alto</span>
+        </div>
+
+        <!-- 4. líquido -->
+        <div class="recipe-item">
+            <h3>💧 sabão líquido</h3>
+            <div class="ing">
+                <strong>🥄 ingredientes:</strong><br>
+                1 litro de óleo usado<br>
+                1 litro de álcool<br>
+                500 g de soda em escamas<br>
+                1 litro de água (para a soda) + 2 litros de água fria (final)
+            </div>
+            <p><strong>📌 uso:</strong> superfícies, diluível – ótimo para esfregar</p>
+            <span class="badge">rende muito</span>
+        </div>
+
+        <!-- 5. limão -->
+        <div class="recipe-item">
+            <h3>🍋 limão cheiroso</h3>
+            <div class="ing">
+                <strong>🥄 ingredientes:</strong><br>
+                1 litro de óleo usado<br>
+                1 litro de suco de limão (coado)<br>
+                500 g de soda em escamas (99/96%)
+            </div>
+            <p><strong>📌 uso:</strong> panelas, fogão – brilho e aroma cítrico</p>
+            <span class="badge">natural perfume</span>
+        </div>
+    </div>
+
+    <!-- MODO DE PREPARO GERAL (passo a passo ilustrado) -->
+    <div class="card" style="margin-top: 16px;">
+        <h2 style="font-size: 1.7rem; margin-bottom: 16px; display: flex; gap: 6px;">👩‍🍳 preparo (vale para todas)</h2>
+        <ol class="preparo">
+            <li><strong>coe o óleo</strong> – pano ou filtro de papel, sem restos de comida.</li>
+            <li>com equipamento de segurança, dissolva a soda na água quente (ou no líquido indicado). Mexa até sumir.</li>
+            <li>em outro balde, coloque o óleo + outros líquidos (detergente, álcool, etc).</li>
+            <li>despeje a soda diluída aos poucos sobre o óleo, mexendo <strong>sem parar</strong> por 15 a 20 minutos.</li>
+            <li>quando engrossar (consistência de creme), despeje em formas (caixas de leite, bacias plásticas).</li>
+            <li>cubra com pano e descanse <strong>24h a 48h</strong>.</li>
+            <li>desenforme e corte as barras. <strong>cure por 15 a 30 dias</strong> em local seco arejado.</li>
+        </ol>
+        <p style="margin-top: 16px; background: #d9e3d4; padding: 12px; border-radius: 16px;">
+            ⏱️ a <strong>cura</strong> é fundamental para neutralizar a soda – só use depois desse período.
+        </p>
+    </div>
+
+    <!-- DICAS ESPECIAIS / PERFUME ETC -->
+    <div class="tip-box">
+        <h4>✨ dicas de ouro</h4>
+        <ul style="list-style-type: none; padding-left: 4px;">
+            <li style="margin-bottom: 12px;">🍯 <strong>mais espuma:</strong> acrescente 2 colheres de sopa de açúcar na básica.</li>
+            <li style="margin-bottom: 12px;">🌸 <strong>perfume:</strong> algumas gotas de óleo essencial (lavanda, eucalipto) ou 2 colheres de amaciante na mistura final.</li>
+            <li style="margin-bottom: 12px;">🧪 <strong>teste de segurança:</strong> se tiver pele sensível, experimente num canto antes de usar no corpo.</li>
+            <li>🧊 <strong>consistência:</strong> se o sabão ficar mole, use menos água na próxima leva.</li>
+        </ul>
+    </div>
+
+    <!-- TABELA RESUMO (visual limpo) -->
+    <hr>
+    <h2 style="font-size: 1.4rem; margin-bottom: 10px;">📋 resumo das receitas</h2>
+    <div style="background: white; border-radius: 20px; padding: 8px 12px; border: 1px solid #d2c9bc;">
+        <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+            <thead>
+                <tr style="border-bottom: 2px solid #b7ab9a;">
+                    <th style="text-align: left; padding: 12px 4px;">tipo</th>
+                    <th style="text-align: left; padding: 12px 4px;">óleo</th>
+                    <th style="text-align: left; padding: 12px 4px;">soda</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>🧽 multiuso</td><td>3 L</td><td>250 g</td></tr>
+                <tr><td>💰 econômico</td><td>4 L</td><td>240 g</td></tr>
+                <tr><td>🧴 espuma</td><td>4 L</td><td>1 kg (70%)</td></tr>
+                <tr><td>💧 líquido</td><td>1 L</td><td>500 g escamas</td></tr>
+                <tr><td>🍋 limão</td><td>1 L</td><td>500 g (99%)</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- LEMBRETE FINAL -->
+    <div class="small-note" style="margin-top: 24px;">
+        <p style="font-weight: 600;">⚠️ soda cáustica é corrosiva: mantenha longe de crianças, animais e use proteção. Em caso de contato com a pele, lave em água corrente abundante e procure orientação médica.</p>
+    </div>
+
+    <div class="footer">
+        ♻️ reciclagem caseira • 2026
+    </div>
+</div>
+</body>
+</html>
